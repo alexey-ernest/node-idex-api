@@ -60,8 +60,8 @@ module.exports = function () {
         returnOrderTrades: async function returnOrderTrades() {
             return await api(`returnOrderTrades`)
         },
-        returnNextNonce: async function returnNextNonce() {
-            return await api(`returnNextNonce`)
+        returnNextNonce: async function returnNextNonce(address) {
+            return await api(`returnNextNonce`, { address })
         },
         returnContractAddress: async function returnContractAddress() {
             return await api(`returnContractAddress`)
