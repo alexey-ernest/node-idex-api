@@ -66,17 +66,17 @@ module.exports = function () {
         returnContractAddress: async function returnContractAddress() {
             return await api(`returnContractAddress`)
         },
-        order: async function order() {
-            return await api(`order`)
+        order: async function order(payload) {
+            return await api(`order`, payload)
         },
-        trade: async function trade() {
-            return await api(`trade`)
+        trade: async function trade(payload) {
+            return await api(`trade`, payload)
         },
-        cancel: async function cancel() {
-            return await api(`cancel`)
+        cancel: async function cancel(payload) {
+            return await api(`cancel`, payload)
         },
-        withdraw: async function withdraw() {
-            return await api(`withdraw`)
+        withdraw: async function withdraw(payload) {
+            return await api(`withdraw`, payload)
         },
         
         // WebSocket live ticker updates
