@@ -39,8 +39,8 @@ module.exports = function () {
             console.log({ market })
             return await api(`returnOpenOrders`, { market, address })
         },
-        returnOrderBook: async function returnOrderBook(market) {
-            return await api(`returnOrderBook`, { market })
+        returnOrderBook: async function returnOrderBook(market, count = 100) {
+            return await api(`returnOrderBook`, { market, count })
         },
         returnTradeHistory: async function returnTradeHistory() {
             return await api(`returnTradeHistory`)
