@@ -1,28 +1,28 @@
 module.exports = function () {
     'use strict';
     const WebSocket = require('ws');
-    const axios = require('axios');
+    const request = require('request');
 
-    async function api(action, json = {}) {
-        const userAgent = 'Mozilla/4.0 (compatible; Node IDEX API)';
-        const contentType = 'application/json';
-        let headers = {
-            'User-Agent': userAgent,
-            'Content-type': contentType
-        };
-        try {
-            const response = await axios.request({
-                url: action,
-                headers: headers,
-                method: 'POST',
-                baseURL: 'https://api.idex.market/'
-            }, json);
-            if ( response && response.status !== 200 ) return new Error(JSON.stringify(response.data));
-            return response.data;
-        } catch (error) {
-            return new Error(JSON.stringify(error.response.data));
+    const api = (action, json = {}) => new Promise((resolve, reject) => {
+
+        var url = 'https://api.idex.market/' + action;
+        var options = {
+          method: 'post',
+          body: json,
+          json: true,
+          url: url
         }
-    };
+
+        request(options, function (err, response, body) {
+            if (err) {
+                return reject(err);
+            }
+
+            if (response && response.statusCode !== 200) return reject(JSON.stringify(body));
+            return resolve(body);
+        });
+
+    });
 
     return {
         returnTicker: async function returnTicker(ticker) {

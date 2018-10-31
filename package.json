@@ -7,11 +7,10 @@
         "ccxt": "^1.14.288",
         "ethereumjs-util": "^5.2.0",
         "ramda": "^0.25.0",
-        "request": "^2.87.0",
+        "request": "^2.88.0",
         "rxjs": "^6.2.1",
-        "ws": "^4.1.0",
         "web3-utils": "^1.0.0-beta.34",
-        "axios": "^0.18.0"
+        "ws": "^4.1.0"
     },
     "repository": {
         "type": "git",
